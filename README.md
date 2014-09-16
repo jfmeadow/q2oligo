@@ -6,6 +6,8 @@
 
 ----------
 
+#### If you are also using QIIME: 
+
 
 This simple python script subsets QIIME-formatted files by taxonomic name. 
 
@@ -51,9 +53,14 @@ Now the script is ready to be used in the Oligotyping pipeline.
 
 ------
 
+#### Or use the script as standalone without QIIME: 
+
+
 You can also pass a sequence file to this script (which is much slower than QIIME). 
+The `q2oligo.py` can be used alone to run the entire conversion. 
 The only reason to do this is if you don't have QIIME installed, or if your sequence file
 is quite small (<1gb). 
+
 
 usage: 
 
@@ -71,5 +78,5 @@ Results:
 
 -------
 
-Any deviation from these 3 or 4 arguments, in the correct order, will 
-fail and exit with directions. 
+Any deviation from these 3 or 4 arguments, in the correct order, passed to 
+`q2oligo.py` will fail and exit with directions. 
