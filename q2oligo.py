@@ -42,8 +42,7 @@ import re
 def SearchTax(taxAssFile, String): 
   
   print '\n...............................\n\
-    Searching the taxonomy file\n\
-  ...............................\n'
+    Searching the taxonomy file\n...............................\n'
   # open, read files and split them by line
   f = open(taxAssFile, 'rU')   
   fRead = f.read()
@@ -140,8 +139,7 @@ def getSequences(fasta, String):
 
   print '\n...............................\n\
     Searching the sequence file\n\
-    Good time to get coffee\n\
-    ...............................\n'
+    Good time to get coffee\n...............................\n'
   # find OTU map just created
   otuMapName = String + '_otu_map.txt'
   otuMap = open(otuMapName, 'rU')
@@ -173,10 +171,11 @@ def getSequences(fasta, String):
   
   # pull out seqID from fasta line. 
   for line in fastaFileRead: 
-    fileSeqID = re.search(r'\A(\S+)\s', line)
+    fileSeqID = re.search(r'\A(\S+)\s(.+)(\n.+)', line)
     if fileSeqID: 
       if fileSeqID.group(1) in seqList: 
-        sequence = '>' + line
+        # sequence = '>' + line
+        sequence = '>' + fileSeqID.group(1) + fileSeqID.group(3) + '\n'
         newFasta.write(sequence)
 
   print '\n...............................\n\
@@ -198,7 +197,6 @@ def main():
     print '\nYou have a choice of whether to use QIIME (faster) or \n\
       just use this script (slower) to make a new fasta file. \n\n'
 
-
     print 'If you use QIIME, this script needs 3 arguments: \n\
       * a taxonomy assignment text file, in QIIME format,\n\
       * an OTU map, also in QIIME format,\n\
@@ -207,7 +205,9 @@ def main():
       example: \n\
         python q2oligo.py tax_assignments.txt otu_map.txt "Staphylococcus"\n\n\
       Then use QIIME thusly: \n\
-        filter_fasta.py -f seqs.fna -m Staphylococcus_otu_map.txt -o Staphylococcus.fasta\n\n'
+        filter_fasta.py -f seqs.fna -m Staphylococcus_otu_map.txt -o Staphylococcus.fasta\n\n\
+      And then to strip the extra metadata from the sequence header, use the other script in this folder: \n\
+        python stripMeta.py Staphylococcus.fasta Staphylococcus_stripped.fasta\n\n'
 
     print 'However, if you don\'t mind waiting, it needs 4 things: \n\
       * a taxonomy assignment text file, in QIIME format,\n\

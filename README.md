@@ -41,6 +41,13 @@ The resulting subsetted OTU map can then be used in a
 ```
 filter.fasta.py -f seqs.fna -m Firmicutes_otu_map.txt -o Firmicutes.fasta
 ```
+And then, since QIIME retains all of the sequence header information, use the `stripMeta.py` script to strip the extra metadata from the sequence header:
+
+``` 
+python stripMeta.py Firmicutes.fasta Firmicutes_stripped.fasta
+```
+
+Now the script is ready to be used in the Oligotyping pipeline. 
 
 ------
 
