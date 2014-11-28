@@ -49,7 +49,7 @@ And then, since QIIME retains all of the sequence header information, use the `s
 python stripMeta.py Firmicutes.fasta Firmicutes_stripped.fasta
 ```
 
-Now the script is ready to be used in the Oligotyping pipeline. 
+Now the fast file is ready to be used in the Oligotyping pipeline. 
 
 ------
 
@@ -80,3 +80,19 @@ Results:
 
 Any deviation from these 3 or 4 arguments, in the correct order, passed to 
 `q2oligo.py` will fail and exit with directions. 
+
+
+-------
+
+#### Update November 28 2014
+
+This script is now compatible with Open Reference OTU Picking. 
+
+Two bugs were fixed: 
+
+* Previously the script ignored OTU ID prefixes added during open reference OTU picking in QIIME. This was fixed, so that all OTUs are carried through the process, regardless of their prefix. 
+* The old script assumed that all OTUs were found in the OTU map, but if used with a subset OTU map (such as an `mc2` default where singletons are removed), the script will now indicate a lower number of OTUs were written to the new taxon OTU map. 
+
+
+
+

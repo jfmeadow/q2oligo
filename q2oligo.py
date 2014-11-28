@@ -61,7 +61,7 @@ def SearchTax(taxAssFile, String):
 
     # put IDs and taxa strings into list when they are found.
     if IDfind:
-      otuID = re.search(r'(\d+)\t(.+)', line)
+      otuID = re.search(r'\A(\S+)\t(.+)', line)  # added \A and \S to catch open ref prefix
       IDToFind.append(otuID.group(1))
       IDMatched.append(otuID.group(2))
   
@@ -120,17 +120,19 @@ def SearchOTUs(IDToFind, OTUsFile, String):
 
   # loop twice - once over ID names and then over OTU map. 
   # Find each OTU ID and then add OTU ID and sequence IDs to dict. 
+  IDwritten = 0   # new index in case some OTUs were not found. 
   for ID in IDToFind:
     for i in range(numLines):
       line = otuMapRead[i]
       IDfind = re.search(r'\A' + ID + '\t', line)
       if IDfind:
         SeqIDsOut.write(line + '\n')
+        IDwritten = IDwritten + 1
 
   SeqIDsOut.close()      
   print '\n...............................\n\
     Finished searching the OTU map\n\
-    Found ' + str(len(IDToFind)) + ' OTUs and wrote them to ' + \
+    Found ' + str(IDwritten) + ' OTUs and wrote them to ' + \
     IDsOut + '\n...............................\n'
 
 
