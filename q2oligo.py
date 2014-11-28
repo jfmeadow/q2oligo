@@ -158,7 +158,7 @@ def getSequences(fasta, String):
   seqList = []
 
   for line in otuMapRead: 
-    eachOTU = re.search(r'\A(\d+)\t(.+)', line)
+    eachOTU = re.search(r'\A(\S+)\t(.+)', line)
     if eachOTU: 
       seqIDs = eachOTU.group(2)
       checkTabs = re.search('\t', seqIDs)
@@ -171,6 +171,8 @@ def getSequences(fasta, String):
 
   # print '\n\nmade it out of seqList.....\n\n'
   
+  print seqList
+
   # pull out seqID from fasta line. 
   for line in fastaFileRead: 
     fileSeqID = re.search(r'\A(\S+)\s(.+)(\n.+)', line)
