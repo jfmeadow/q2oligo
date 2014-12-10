@@ -8,3 +8,5 @@
 503354	k__Bacteria; p__Firmicutes; c__Bacilli; o__Bacillales; f__Staphylococcaceae; g__Staphylococcus; s__	1.00	3
 11544	k__Bacteria; p__Actinobacteria; c__Actinobacteria; o__Actinomycetales; f__Frankiaceae; g__Frankia; s__	0.67	3
 114076	k__Bacteria; p__Bacteroidetes; c__[Saprospirae]; o__[Saprospirales]; f__Chitinophagaceae; g__; s__	1.00	3
+New.CleanUp.ReferenceOTU36	k__Bacteria; p__Firmicutes; c__Bacilli; o__Bacillales; f__Staphylococcaceae; g__Staphylococcus; s__	1.00	3
+1140799	k__Bacteria; p__Bacteroidetes; c__[Saprospirae]; o__[Saprospirales]; f__Chitinophagaceae; g__; s__	1.00	3

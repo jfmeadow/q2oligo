@@ -171,7 +171,7 @@ def getSequences(fasta, String):
 
   # print '\n\nmade it out of seqList.....\n\n'
   
-  print seqList
+  # print seqList
 
   # pull out seqID from fasta line. 
   for line in fastaFileRead: 

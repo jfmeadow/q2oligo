@@ -41,7 +41,7 @@ The resulting subsetted OTU map can then be used in a
   e.g.: 
   
 ```
-filter.fasta.py -f seqs.fna -m Firmicutes_otu_map.txt -o Firmicutes.fasta
+filter_fasta.py -f seqs.fna -m Firmicutes_otu_map.txt -o Firmicutes.fasta
 ```
 And then, since QIIME retains all of the sequence header information, use the `stripMeta.py` script to strip the extra metadata from the sequence header:
 
@@ -49,7 +49,7 @@ And then, since QIIME retains all of the sequence header information, use the `s
 python stripMeta.py Firmicutes.fasta Firmicutes_stripped.fasta
 ```
 
-Now the fast file is ready to be used in the Oligotyping pipeline. 
+Now the fasta file is ready to be used in the Oligotyping pipeline. 
 
 ------
 
